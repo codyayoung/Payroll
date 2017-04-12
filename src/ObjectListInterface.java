@@ -1,5 +1,7 @@
 /**
- * Created by Cody on 4/11/2017.
+ * Interface for ObjectList objects.
+ * @author Cody Young
+ * @version 4/11/17
  */
 public interface ObjectListInterface {
     public ObjectListNode getFirstNode();
