@@ -1,5 +1,5 @@
 /**
- * Creates objects of the ObjectList class.
+ * Creates objects of the ObjectList class. Initializes instance variables.
  * @author Cody Young
  * @version 4/11/17
  */
