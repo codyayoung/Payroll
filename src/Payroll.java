@@ -1,5 +1,5 @@
 /**
- *Performs operations on a payroll file.
+ *Performs operations on a payroll database.
  *@author Cody Young
  *@version 4/11/17
  */
