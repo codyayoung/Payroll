@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Payroll Lab
  * Uses linked lists and interfaces to perform payroll calculations.
@@ -5,9 +7,11 @@
  *@version 4/11/17
  */
 public class Driver {
-    //Payroll pay = new Payroll();
-    //pay.scanPayroll();
-    //pay.payrollFormatted();
-    //pay.employeeCount();
-    //pay.allWomen();
+    public static void main(String[] args) throws IOException {
+        Payroll pay = new Payroll();
+        pay.scanPayroll();
+        //pay.payrollFormatted();
+        //pay.employeeCount();
+        //pay.allWomen();
+    }
 }

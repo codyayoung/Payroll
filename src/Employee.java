@@ -15,7 +15,7 @@ public class Employee implements Comparable {
     /**
      * Constructor method for Employee objects. Initializes instance variables.
      */
-    public Employee() {
+    public Employee(String firstName, String lastName, String gender, int tenure, String rate, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
