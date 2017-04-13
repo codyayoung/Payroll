@@ -8,7 +8,7 @@ public class ObjectList implements ObjectListInterface{
     private ObjectListNode last;
 
     /**
-     * Constructor method
+     * Constructor method for ObjectList objects.
      */
     public ObjectList() {
         list = null;
