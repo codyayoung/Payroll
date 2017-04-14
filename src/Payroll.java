@@ -82,10 +82,11 @@ public class Payroll {
         System.out.printf("Women:\n");
         ObjectListNode p = EmployeeList.getFirstNode();
         while (p!= null) {
-            p = p.getNext();
-            if (employee.getGender() != "M") {
-                System.out.printf("%5s %s\n", employee.getFirstName(), employee.getLastName());
+            Employee temp = (Employee)p.getInfo();
+            if (temp.getGender().equals("F")) {
+                System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
             }
+            p = p.getNext();
         }
     }
 
