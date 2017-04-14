@@ -11,8 +11,7 @@ public class Payroll {
         private Employee employee;  //Employee object
         private ObjectList InputList;    //ObjectList of Employee objects
         private ObjectList EmployeeList;
-        private ObjectListNode empnode;     //ObjectListNode to hold Employee object
-    Scanner sc = new Scanner("payfile.txt");
+
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
@@ -85,7 +84,7 @@ public class Payroll {
         while (p!= null) {
             p = p.getNext();
             if (employee.getGender() != "M") {
-                System.out.printf("%5s %s\n", employee.getFirstName().toString(), employee.getLastName().toString());
+                System.out.printf("%5s %s\n", employee.getFirstName(), employee.getLastName());
             }
         }
     }
