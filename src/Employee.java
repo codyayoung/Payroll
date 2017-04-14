@@ -157,6 +157,10 @@ public class Employee implements Comparable {
     }
 
     @Override
+    /**
+     * toString method for Employee objects.
+     * @return String representation of Employee object.
+     */
     public String toString() {
         return "Employee{" +
                 "firstName='" + firstName + '\'' +

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Payroll {
     //Instance variables
         private Employee employee;  //Employee object
-        private ObjectList EmployeeList;    //ObjectList of Employee objects
+        public ObjectList EmployeeList;    //ObjectList of Employee objects
         private ObjectListNode empnode;     //ObjectListNode to hold Employee object
     Scanner sc = new Scanner("payfile.txt");
     /**
@@ -54,13 +54,20 @@ public class Payroll {
             Employee formattedEmployee = (Employee)EmployeeList.removeFirst();
             System.out.printf("%-25s%10s%10s%10s%10s%20s\n", formattedEmployee.getFirstName(), formattedEmployee.getLastName(), formattedEmployee.getGender(), formattedEmployee.getTenure(), formattedEmployee.getRate(), formattedEmployee.getSalary());
         }
+        System.out.print('\n');
     }
 
     /**
      * Outputs number of employees.
      */
     public void employeeCount() {
-        
+        ObjectListNode p = EmployeeList.getFirstNode();     //Points to head of list, but returns null
+        int count = 0;
+        while(p != null) {
+            p = p.getNext();
+            count++;
+        }
+        System.out.println("Number of employees:"+count); //Says 0 because it points to null, don't know why
     }
 
     /**

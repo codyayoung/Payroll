@@ -11,7 +11,7 @@ public class Driver {
         Payroll pay = new Payroll();
         pay.scanPayroll();
         pay.payrollFormatted();
-        //pay.employeeCount();
+        pay.employeeCount();
         //pay.allWomen();
         //pay.tenuredEmployees();
         //pay.giveRaise();
