@@ -88,4 +88,21 @@ public class Payroll {
             }
         }
     }
+
+    /**
+     * Outputs all tenured employees.
+     */
+    public void tenuredEmployees() {
+        System.out.printf("Tenured Employees:\n");
+        ObjectListNode p = EmployeeList.getFirstNode();
+        while (p!= null) {
+            p = p.getNext();
+            if (employee.getRate() == "W" && employee.getTenure() >= 5) {
+                double yearly_salary = employee.getSalary() * 52; //Converts weekly into yearly salary
+                if(yearly_salary > 35000) {
+                    System.out.printf("%5s %s\n", employee.getFirstName(), employee.getLastName());
+                }
+            }
+        }
+    }
 }
