@@ -155,4 +155,16 @@ public class Employee implements Comparable {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", tenure=" + tenure +
+                ", rate='" + rate + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }

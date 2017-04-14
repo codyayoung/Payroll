@@ -10,8 +10,13 @@ public class Driver {
     public static void main(String[] args) throws IOException {
         Payroll pay = new Payroll();
         pay.scanPayroll();
-        //pay.payrollFormatted();
+        pay.payrollFormatted();
         //pay.employeeCount();
         //pay.allWomen();
+        //pay.tenuredEmployees();
+        //pay.giveRaise();
+        //pay.sort();
+        //pay.hireNew();
+        //pay.terminate();
     }
 }
