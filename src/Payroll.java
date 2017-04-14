@@ -50,9 +50,11 @@ public class Payroll {
         }
         System.out.print('\n');
         System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
-        while (!EmployeeList.isEmpty()) {
-            Employee formattedEmployee = (Employee)EmployeeList.removeFirst();
-            System.out.printf("%-25s%10s%10s%10s%10s%20s\n", formattedEmployee.getFirstName(), formattedEmployee.getLastName(), formattedEmployee.getGender(), formattedEmployee.getTenure(), formattedEmployee.getRate(), formattedEmployee.getSalary());
+        ObjectListNode p = EmployeeList.getFirstNode();
+            while (p != null) {
+            p = p.getNext();
+            Employee format = (Employee)EmployeeList.removeFirst();      //Need to perform this non destructively
+            System.out.printf("%-25s%10s%10s%10s%10s%20s\n", format.getFirstName(),format.getLastName(), format.getGender(), format.getTenure(), format.getRate(), format.getSalary());
         }
         System.out.print('\n');
     }
@@ -67,7 +69,7 @@ public class Payroll {
             p = p.getNext();
             count++;
         }
-        System.out.println("Number of employees:"+count); //Says 0 because it points to null, don't know why
+        System.out.println("Number of employees:"+ count); //Says 0 because it points to null, don't know why
     }
 
     /**
