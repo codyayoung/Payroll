@@ -175,7 +175,6 @@ public class ObjectList implements ObjectListInterface{
      * @param p Reference to node
      * @param q Node to be inserted
      */
-    // Inserts a node after the node referenced by p
     public void insertAfter(ObjectListNode p, ObjectListNode q) {
         if (list == null || p == null || q == null) {
             System.out.println("Runtime Error: insertAfter()");
@@ -245,7 +244,6 @@ public class ObjectList implements ObjectListInterface{
      * @param o Item to remove
      * @return If list has one node, delete node
      */
-    // Removes the first occurrence of an item in a list
     public Object remove(Object o) {
         ObjectListNode p = list;
         ObjectListNode q = null;
