@@ -49,10 +49,10 @@ public class Payroll {
             System.out.print("-");
         }
         System.out.print('\n');
-        System.out.printf("%-25s%5s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
+        System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
         while (!EmployeeList.isEmpty()) {
             Employee formattedEmployee = (Employee)EmployeeList.removeFirst();
-            System.out.printf("%-25s%5s%10s%10s%10s%20s\n", formattedEmployee.getFirstName(), formattedEmployee.getLastName(), formattedEmployee.getGender(), formattedEmployee.getTenure(), formattedEmployee.getRate(), formattedEmployee.getSalary());
+            System.out.printf("%-25s%10s%10s%10s%10s%20s\n", formattedEmployee.getFirstName(), formattedEmployee.getLastName(), formattedEmployee.getGender(), formattedEmployee.getTenure(), formattedEmployee.getRate(), formattedEmployee.getSalary());
         }
     }
 
