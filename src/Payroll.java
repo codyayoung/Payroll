@@ -9,19 +9,21 @@ import java.util.Scanner;
 public class Payroll {
     //Instance variables
         private Employee employee;  //Employee object
-        public ObjectList EmployeeList;    //ObjectList of Employee objects
+        private ObjectList InputList;    //ObjectList of Employee objects
+        private ObjectList EmployeeList;
         private ObjectListNode empnode;     //ObjectListNode to hold Employee object
     Scanner sc = new Scanner("payfile.txt");
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
     public Payroll() {
+         InputList = new ObjectList();
          EmployeeList = new ObjectList();
     }
 
     /**
-     * Reads from payfile.txt, places into Employee objects,
-     * places Employee objects into nodes, then inserts nodes into EmployeeList.
+     * Reads from payfile.txt, wraps into Employee objects,
+     * and places into InputList for further processing.
      */
     public void scanPayroll() throws IOException {
         Scanner sc = new Scanner(new File("payfile.txt"));
@@ -36,7 +38,7 @@ public class Payroll {
             String in_rate = tokens[4];           //Rate
             double in_salary = Double.parseDouble(tokens[5]);       //Salary
             employee = new Employee(first, last, sex, in_tenure, in_rate, in_salary);// Create employee object, set info fields
-            EmployeeList.insert(employee);           //Insert node into list
+            InputList.insert(employee);           //Insert node into input list
         }
     }
 
@@ -50,10 +52,11 @@ public class Payroll {
         }
         System.out.print('\n');
         System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
-        ObjectListNode p = EmployeeList.getFirstNode();
+        ObjectListNode p = InputList.getFirstNode();
             while (p != null) {
             p = p.getNext();
-            Employee format = (Employee)EmployeeList.removeFirst();      //Need to perform this non destructively
+            Employee format = (Employee)InputList.removeFirst();      //Takes from input, places into formatted EmployeeList
+            EmployeeList.insert(format);
             System.out.printf("%-25s%10s%10s%10s%10s%20s\n", format.getFirstName(),format.getLastName(), format.getGender(), format.getTenure(), format.getRate(), format.getSalary());
         }
         System.out.print('\n');
@@ -63,19 +66,27 @@ public class Payroll {
      * Outputs number of employees.
      */
     public void employeeCount() {
-        ObjectListNode p = EmployeeList.getFirstNode();     //Points to head of list, but returns null
+        ObjectListNode p = EmployeeList.getFirstNode();
         int count = 0;
         while(p != null) {
             p = p.getNext();
             count++;
         }
-        System.out.println("Number of employees:"+ count); //Says 0 because it points to null, don't know why
+        System.out.println("Number of employees:"+ count);
+        System.out.print('\n');
     }
 
     /**
      *Outputs first and last name of all women on payroll.
      */
     public void allWomen() {
-        
+        System.out.printf("Women:\n");
+        ObjectListNode p = EmployeeList.getFirstNode();
+        while (p!= null) {
+            p = p.getNext();
+            if (employee.getGender() != "M") {
+                System.out.printf("%5s %s\n", employee.getFirstName().toString(), employee.getLastName().toString());
+            }
+        }
     }
 }

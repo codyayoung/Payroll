@@ -12,7 +12,7 @@ public class Driver {
         pay.scanPayroll();
         pay.payrollFormatted();
         pay.employeeCount();
-        //pay.allWomen();
+        pay.allWomen();
         //pay.tenuredEmployees();
         //pay.giveRaise();
         //pay.sort();
