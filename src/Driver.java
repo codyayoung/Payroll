@@ -15,7 +15,7 @@ public class Driver {
         pay.allWomen();
         pay.tenuredEmployees();
         pay.giveRaise();
-        //pay.sort();
+        pay.sort();
         //pay.hireNew();
         //pay.terminate();
     }

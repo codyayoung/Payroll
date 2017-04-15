@@ -141,7 +141,20 @@ public class Payroll {
      * Sorts EmployeeList by first and last name. Prints sorted list.
      */
     public void sort() {
-
+        System.out.print('\n');
+        System.out.printf("Employees - Last Name, Alphabetical\n");
+        ObjectListNode p = EmployeeList.getFirstNode();     //Lead pointer
+        ObjectListNode q = EmployeeList.getFirstNode();
+        while (p.getNext() != null) {
+            Employee temp = (Employee)p.getInfo();
+            Employee previous = (Employee)q.getInfo();
+            if (temp.getLastName().compareTo(previous.getLastName()) > 0) {
+                EmployeeList.insert(temp);
+                System.out.printf("%s %-10s\n", temp.getLastName(), temp.getFirstName());
+            }
+            q = p;
+            p = p.getNext();
+        }
     }
 
     /**
