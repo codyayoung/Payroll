@@ -142,17 +142,17 @@ public class Payroll {
      */
     public void sort() {
         System.out.print('\n');
-        System.out.printf("Employees - Last Name, Alphabetical\n");
+        System.out.printf("Employees - First Name, Alphabetical\n");    //For some reason this works and I don't know why
         ObjectListNode p = EmployeeList.getFirstNode();     //Lead pointer
-        ObjectListNode q = EmployeeList.getFirstNode();
+        ObjectListNode q = EmployeeList.getFirstNode();     //Lag pointer
         while (p != null) {
-            Employee temp = (Employee)p.getInfo();
-            Employee previous = (Employee)q.getInfo();
-            if (temp.getLastName().compareTo(previous.getLastName()) > 0) {
+            Employee temp = (Employee) p.getInfo();
+            Employee previous = (Employee) q.getInfo();
+            if (temp.getFirstName().compareTo(previous.getFirstName()) > 0) {
                 EmployeeList.insert(temp);
-                System.out.printf("%s %-10s\n", temp.getLastName(), temp.getFirstName());
+                System.out.printf("%s %-10s\n", temp.getFirstName(), temp.getLastName());   //Still doesn't print out first employee - need to change up logic
             }
-            q.setNext(p.getNext());
+            q.setNext(p.getNext());     //Moves pointers along
             q = p;
             p = p.getNext();
         }
