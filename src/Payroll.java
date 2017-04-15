@@ -145,13 +145,14 @@ public class Payroll {
         System.out.printf("Employees - Last Name, Alphabetical\n");
         ObjectListNode p = EmployeeList.getFirstNode();     //Lead pointer
         ObjectListNode q = EmployeeList.getFirstNode();
-        while (p.getNext() != null) {
+        while (p != null) {
             Employee temp = (Employee)p.getInfo();
             Employee previous = (Employee)q.getInfo();
             if (temp.getLastName().compareTo(previous.getLastName()) > 0) {
                 EmployeeList.insert(temp);
                 System.out.printf("%s %-10s\n", temp.getLastName(), temp.getFirstName());
             }
+            q.setNext(p.getNext());
             q = p;
             p = p.getNext();
         }
