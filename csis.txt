@@ -1,0 +1,78 @@
+Super Inefficient Enterprise Software Systems Inc. - Payroll 1996
+------------------------------------------------------------------
+First Name                Last Name    Gender    Tenure      Rate              Salary
+Jean                        Brennan         F         6         H                 5.4
+Shari                       Buchman         F         9         W               325.0
+Albert                       Cahana         M         3         H               18.75
+Joan                        Jacobus         F         9         W               925.0
+Sara                          Jones         F         1         H                 7.5
+Jamie                      Michaels         F         8         W               150.0
+Ricky                        Mofsen         M         6         H                12.5
+David                          Renn         M         3         H                4.75
+Douglas                       Sheer         M         5         W               250.0
+Deborah                       Starr         F         3         W              1000.0
+Howard                        Starr         M         8         H                30.0
+
+Number of employees: 11
+
+Women:
+Jean Brennan
+Shari Buchman
+Joan Jacobus
+Sara Jones
+Jamie Michaels
+Deborah Starr
+
+Tenured Employees:
+Joan Jacobus
+
+Employees getting Raises:
+Jean Brennan    New Hourly Rate: 6.15/hr
+Shari Buchman     New Salary: 675.00/week
+Sara Jones      New Hourly Rate: 8.25/hr
+Jamie Michaels    New Salary: 500.00/week
+David Renn       New Hourly Rate: 5.50/hr
+Douglas Sheer       New Salary: 600.00/week
+
+Employees - Last Name - Alphabetical - Salary
+Jean Brennan  5.40
+Shari Buchman 325.00
+Albert Cahana 18.75
+Joan Jacobus 925.00
+Sara Jones  7.50
+Jamie Michaels 150.00
+Ricky Mofsen 12.50
+David Renn  4.75
+Douglas Sheer 250.00
+Deborah Starr 1000.00
+Howard Starr 30.00
+
+Payroll 1996 -- New Employees Added!
+Barry Allen
+Jean Brennan
+Shari Buchman
+Albert Cahana
+Joan Jacobus
+Sara Jones
+Jamie Michaels
+Ricky Mofsen
+Nina Pinella
+David Renn
+Douglas Sheer
+Deborah Starr
+Howard Starr
+Lane Wagger
+
+Payroll 1996 -- Post "Restructuring"
+Barry Allen
+Shari Buchman
+Albert Cahana
+Joan Jacobus
+Sara Jones
+Jamie Michaels
+Nina Pinella
+David Renn
+Douglas Sheer
+Deborah Starr
+Howard Starr
+Lane Wagger
