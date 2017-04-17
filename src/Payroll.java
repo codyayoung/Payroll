@@ -10,16 +10,16 @@ import java.io.PrintWriter;
  */
 public class Payroll {
     //Instance variables
-        private Employee employee;  //Employee object
-        private Employee fired_employee;    //Objects formerly known as Employees
-        private ObjectList EmployeeList;
-        public PrintWriter foutput;
+    private Employee employee;  //Employee object
+    private Employee fired_employee;    //Objects formerly known as Employees
+    private ObjectList EmployeeList;
+    //public PrintWriter foutput;
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
     public Payroll() throws IOException {
-         EmployeeList = new ObjectList();
-         PrintWriter foutput = new PrintWriter(new FileWriter("csis.txt"));
+        EmployeeList = new ObjectList();
+        //PrintWriter foutput = new PrintWriter(new FileWriter("csis.txt"));
     }
 
     /**
@@ -48,7 +48,6 @@ public class Payroll {
      */
     public void payrollFormatted() {
         System.out.print("Super Inefficient Enterprise Software Systems Inc. - Payroll 1996\n");
-        foutput.print("Super Inefficient Enterprise Software Systems Inc. - Payroll 1996\n");
         for(int i = 0; i <= 65; i++){
             System.out.print("-");
         }
@@ -56,7 +55,7 @@ public class Payroll {
 
         System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
         ObjectListNode p = EmployeeList.getFirstNode();
-            while (p != null) {
+        while (p != null) {
             Employee temp = (Employee)p.getInfo();     //Takes from input, places Employee List
             //Prints out payroll
             System.out.printf("%-25s%10s%10s%10s%10s%20s\n", temp.getFirstName(),temp.getLastName(), temp.getGender(), temp.getTenure(), temp.getRate(), temp.getSalary());
@@ -126,8 +125,8 @@ public class Payroll {
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
             if (temp.getRate().equals("H") && temp.getSalary() < 10) {
-               double new_hourly = temp.getSalary() + 0.75;
-               System.out.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), new_hourly);
+                double new_hourly = temp.getSalary() + 0.75;
+                System.out.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), new_hourly);
             }
             else if(temp.getRate().equals("W") && temp.getSalary() < 350) {
                 double new_weekly = temp.getSalary() + 350;
