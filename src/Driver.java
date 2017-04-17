@@ -1,4 +1,6 @@
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Payroll Lab
@@ -7,6 +9,7 @@ import java.io.IOException;
  *@version 4/11/17
  */
 public class Driver {
+
     public static void main(String[] args) throws IOException {
         Payroll pay = new Payroll();
         pay.scanPayroll();

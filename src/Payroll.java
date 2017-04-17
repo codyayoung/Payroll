@@ -13,12 +13,13 @@ public class Payroll {
         private Employee employee;  //Employee object
         private Employee fired_employee;    //Objects formerly known as Employees
         private ObjectList EmployeeList;
-
+        public PrintWriter foutput;
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
-    public Payroll() {
+    public Payroll() throws IOException {
          EmployeeList = new ObjectList();
+         PrintWriter foutput = new PrintWriter(new FileWriter("csis.txt"));
     }
 
     /**
@@ -27,7 +28,6 @@ public class Payroll {
      */
     public void scanPayroll() throws IOException {
         Scanner sc = new Scanner(new File("payfile.txt"));
-        //PrintWriter foutput = new PrintWriter(new FileWriter("csis.txt"));
         while(sc.hasNext()) {
             String input_string = sc.nextLine();     //Split input string up into tokens delimited by spaces
             String delims = "[ ]+";
@@ -48,10 +48,12 @@ public class Payroll {
      */
     public void payrollFormatted() {
         System.out.print("Super Inefficient Enterprise Software Systems Inc. - Payroll 1996\n");
+        foutput.print("Super Inefficient Enterprise Software Systems Inc. - Payroll 1996\n");
         for(int i = 0; i <= 65; i++){
             System.out.print("-");
         }
         System.out.print('\n');
+
         System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
         ObjectListNode p = EmployeeList.getFirstNode();
             while (p != null) {
