@@ -45,7 +45,7 @@ public class Employee implements Comparable {
      */
     public int compareTo (Object j) {
         Employee i = (Employee) j;
-        return firstName.compareTo(i.getFirstName());
+        return lastName.compareTo(i.getLastName());
     }
 
     /**
