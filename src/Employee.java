@@ -1,7 +1,7 @@
 /**
  * Creates objects of the Employee class.
  *@author Cody Young
- *@version 4/11/17
+ *@version 4/28/17
  */
 public class Employee implements Comparable {
     //Instance variables

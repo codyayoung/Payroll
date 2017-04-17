@@ -1,7 +1,7 @@
 /**
  * Creates objects of the ObjectList class. Initializes instance variables.
  * @author Cody Young
- * @version 4/11/17
+ * @version 4/28/17
  */
 public class ObjectList implements ObjectListInterface{
     private ObjectListNode list;

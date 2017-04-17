@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 /**
  *Performs operations on a payroll database.
  *@author Cody Young
- *@version 4/11/17
+ *@version 4/28/17
  */
 public class Payroll {
     //Instance variables
@@ -14,6 +14,7 @@ public class Payroll {
     private Employee fired_employee;    //Objects formerly known as Employees
     private ObjectList EmployeeList;
     public PrintWriter foutput;
+
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
