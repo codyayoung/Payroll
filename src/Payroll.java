@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 public class Payroll {
     //Instance variables
         private Employee employee;  //Employee object
-        private Employee fired_employee;
+        private Employee fired_employee;    //Objects formerly known as Employees
         private ObjectList EmployeeList;
 
     /**
@@ -184,7 +184,7 @@ public class Payroll {
      */
     public void terminate() throws IOException {
         System.out.print('\n');
-        System.out.printf("Payroll 1996 -- Post-\"Restructuring\"\n");
+        System.out.printf("Payroll 1996 -- Post \"Restructuring\"\n");
         Scanner fire = new Scanner (new File ("firefile.txt"));
         ObjectListNode p = EmployeeList.getFirstNode();
         while (fire.hasNext()) {                    //Read from file, scan employees for termination into list
@@ -194,15 +194,12 @@ public class Payroll {
             String first = tokens[0];
             String last = tokens[1];
             fired_employee = new Employee(first,last);
+            EmployeeList.remove(fired_employee);
         }
-        //Only deleting one employee
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
-            if (EmployeeList.contains(fired_employee)) {
-                EmployeeList.remove(fired_employee);
-            }
-            p = p.getNext();
             System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
+            p = p.getNext();
         }
     }
 }
