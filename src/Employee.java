@@ -25,6 +25,14 @@ public class Employee implements Comparable {
     }
 
     /**
+     * Overloaded constructor for Employee objects that takes only first and last name.
+     */
+    public Employee (String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    /**
      * Gets first name of Employee.
      * @return First name
      */

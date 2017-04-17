@@ -11,20 +11,19 @@ import java.io.PrintWriter;
 public class Payroll {
     //Instance variables
         private Employee employee;  //Employee object
-        private ObjectList InputList;    //ObjectList of Employee objects
+        private Employee fired_employee;
         private ObjectList EmployeeList;
 
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
     public Payroll() {
-         InputList = new ObjectList();
          EmployeeList = new ObjectList();
     }
 
     /**
      * Reads from payfile.txt, wraps into Employee objects,
-     * and places into InputList for further processing.
+     * and places into EmployeeList.
      */
     public void scanPayroll() throws IOException {
         Scanner sc = new Scanner(new File("payfile.txt"));
@@ -40,7 +39,7 @@ public class Payroll {
             String in_rate = tokens[4];           //Rate
             double in_salary = Double.parseDouble(tokens[5]);       //Salary
             employee = new Employee(first, last, sex, in_tenure, in_rate, in_salary);// Create employee object, set info fields
-            InputList.insert(employee);           //Insert node into input list
+            EmployeeList.insert(employee);           //Insert node into employee list
         }
     }
 
@@ -54,13 +53,12 @@ public class Payroll {
         }
         System.out.print('\n');
         System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
-        ObjectListNode p = InputList.getFirstNode();
+        ObjectListNode p = EmployeeList.getFirstNode();
             while (p != null) {
-            p = p.getNext();
-            Employee format = (Employee)InputList.removeFirst();      //Takes from input, places into formatted EmployeeList
-            EmployeeList.insert(format);
+            Employee temp = (Employee)p.getInfo();     //Takes from input, places Employee List
             //Prints out payroll
-            System.out.printf("%-25s%10s%10s%10s%10s%20s\n", format.getFirstName(),format.getLastName(), format.getGender(), format.getTenure(), format.getRate(), format.getSalary());
+            System.out.printf("%-25s%10s%10s%10s%10s%20s\n", temp.getFirstName(),temp.getLastName(), temp.getGender(), temp.getTenure(), temp.getRate(), temp.getSalary());
+            p = p.getNext();
         }
         System.out.print('\n');
     }
@@ -75,7 +73,7 @@ public class Payroll {
             p = p.getNext();
             count++;
         }
-        System.out.println("Number of employees:"+ count);
+        System.out.println("Number of employees: "+ count);
         System.out.print('\n');
     }
 
@@ -142,8 +140,37 @@ public class Payroll {
      */
     public void sort() {
         System.out.print('\n');
-        System.out.printf("Employees - Last Name, Alphabetical\n");
+        System.out.printf("Employees - Last Name - Alphabetical - Salary\n");
         ObjectListNode p = EmployeeList.getFirstNode();     //Pointer to head of list
+        while (p != null) {
+            Employee temp = (Employee)p.getInfo();
+            System.out.printf("%s %s %5.2f\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
+            p = p.getNext();
+        }
+    }
+
+    /**
+     * Hires new employees. Prints out new payroll roster.
+     */
+    public void hireNew() throws IOException {
+        System.out.print('\n');
+        System.out.printf("Payroll 1996 -- New Employees Added!\n");
+        Scanner hire = new Scanner(new File("hirefile.txt"));
+
+        while (hire.hasNext()) {                    //Same scanning method as before
+            String input_string = hire.nextLine();
+            String delims = "[ ]+";
+            String[] tokens =input_string.split(delims);
+            String first = tokens[0];
+            String last = tokens[1];
+            String sex = tokens[2];
+            int in_tenure = Integer.parseInt(tokens[3]);
+            String in_rate = tokens[4];
+            double in_salary = Double.parseDouble(tokens[5]);
+            employee = new Employee(first, last, sex, in_tenure, in_rate, in_salary);
+            EmployeeList.insert(employee);
+        }
+        ObjectListNode p = EmployeeList.getFirstNode();
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
             System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
@@ -152,17 +179,30 @@ public class Payroll {
     }
 
     /**
-     * Hires new employees. Prints out new payroll roster.
-     */
-    public void hireNew() {
-
-    }
-
-    /**
      * Marks certain employees for termination and outputs their names.
      * What happens after that is classified.
      */
-    public void terminate() {
-
+    public void terminate() throws IOException {
+        System.out.print('\n');
+        System.out.printf("Payroll 1996 -- Post-\"Restructuring\"\n");
+        Scanner fire = new Scanner (new File ("firefile.txt"));
+        ObjectListNode p = EmployeeList.getFirstNode();
+        while (fire.hasNext()) {                    //Read from file, scan employees for termination into list
+            String input_string = fire.nextLine();
+            String delims = "[ ]+";
+            String[] tokens =input_string.split(delims);
+            String first = tokens[0];
+            String last = tokens[1];
+            fired_employee = new Employee(first,last);
+        }
+        //Only deleting one employee
+        while (p != null) {
+            Employee temp = (Employee)p.getInfo();
+            if (EmployeeList.contains(fired_employee)) {
+                EmployeeList.remove(fired_employee);
+            }
+            p = p.getNext();
+            System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
+        }
     }
 }
