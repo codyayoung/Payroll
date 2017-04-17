@@ -13,13 +13,13 @@ public class Payroll {
     private Employee employee;  //Employee object
     private Employee fired_employee;    //Objects formerly known as Employees
     private ObjectList EmployeeList;
-    //public PrintWriter foutput;
+    public PrintWriter foutput;
     /**
      * Constructor method for Payroll objects. Initializes instance variables.
      */
     public Payroll() throws IOException {
         EmployeeList = new ObjectList();
-        //PrintWriter foutput = new PrintWriter(new FileWriter("csis.txt"));
+        foutput = new PrintWriter(new FileWriter("csis.txt"));
     }
 
     /**
@@ -48,20 +48,26 @@ public class Payroll {
      */
     public void payrollFormatted() {
         System.out.print("Super Inefficient Enterprise Software Systems Inc. - Payroll 1996\n");
+        foutput.print("Super Inefficient Enterprise Software Systems Inc. - Payroll 1996\n");
         for(int i = 0; i <= 65; i++){
             System.out.print("-");
+            foutput.print("-");
         }
         System.out.print('\n');
+        foutput.print('\n');
 
         System.out.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
+        foutput.printf("%-25s%10s%10s%10s%10s%20s\n", "First Name", "Last Name", "Gender", "Tenure", "Rate", "Salary");
         ObjectListNode p = EmployeeList.getFirstNode();
         while (p != null) {
             Employee temp = (Employee)p.getInfo();     //Takes from input, places Employee List
             //Prints out payroll
             System.out.printf("%-25s%10s%10s%10s%10s%20s\n", temp.getFirstName(),temp.getLastName(), temp.getGender(), temp.getTenure(), temp.getRate(), temp.getSalary());
+            foutput.printf("%-25s%10s%10s%10s%10s%20s\n", temp.getFirstName(),temp.getLastName(), temp.getGender(), temp.getTenure(), temp.getRate(), temp.getSalary());
             p = p.getNext();
         }
         System.out.print('\n');
+        foutput.print('\n');
     }
 
     /**
@@ -75,7 +81,9 @@ public class Payroll {
             count++;
         }
         System.out.println("Number of employees: "+ count);
+        foutput.println("Number of employees: "+ count);
         System.out.print('\n');
+        foutput.print('\n');
     }
 
     /**
@@ -83,11 +91,13 @@ public class Payroll {
      */
     public void allWomen() {
         System.out.printf("Women:\n");
+        foutput.printf("Women:\n");
         ObjectListNode p = EmployeeList.getFirstNode();
         while (p!= null) {
             Employee temp = (Employee)p.getInfo();
             if (temp.getGender().equals("F")) {
                 System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
+                foutput.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
             }
             p = p.getNext();
         }
@@ -99,7 +109,9 @@ public class Payroll {
      */
     public void tenuredEmployees() {
         System.out.print('\n');
+        foutput.print('\n');
         System.out.printf("Tenured Employees:\n");
+        foutput.printf("Tenured Employees:\n");
         ObjectListNode p = EmployeeList.getFirstNode();
         while (p!= null) {
             Employee temp = (Employee)p.getInfo();
@@ -107,6 +119,7 @@ public class Payroll {
                 double yearly_salary = temp.getSalary() * 52; //Converts weekly into yearly salary, assuming year is 52 weeks long
                 if(yearly_salary > 35000) {
                     System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
+                    foutput.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
                 }
             }
             p = p.getNext();
@@ -120,17 +133,21 @@ public class Payroll {
      */
     public void giveRaise() {
         System.out.print('\n');
+        foutput.print('\n');
         System.out.printf("Employees getting Raises:\n");
+        foutput.printf("Employees getting Raises:\n");
         ObjectListNode p = EmployeeList.getFirstNode();
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
             if (temp.getRate().equals("H") && temp.getSalary() < 10) {
                 double new_hourly = temp.getSalary() + 0.75;
                 System.out.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), new_hourly);
+                foutput.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), new_hourly);
             }
             else if(temp.getRate().equals("W") && temp.getSalary() < 350) {
                 double new_weekly = temp.getSalary() + 350;
                 System.out.printf("%s %-10s  New Salary: %.2f/week\n", temp.getFirstName(), temp.getLastName(), new_weekly);
+                foutput.printf("%s %-10s  New Salary: %.2f/week\n", temp.getFirstName(), temp.getLastName(), new_weekly);
             }
             p = p.getNext();
         }
@@ -141,11 +158,14 @@ public class Payroll {
      */
     public void sort() {
         System.out.print('\n');
+        foutput.print('\n');
         System.out.printf("Employees - Last Name - Alphabetical - Salary\n");
+        foutput.printf("Employees - Last Name - Alphabetical - Salary\n");
         ObjectListNode p = EmployeeList.getFirstNode();     //Pointer to head of list
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
             System.out.printf("%s %s %5.2f\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
+            foutput.printf("%s %s %5.2f\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
             p = p.getNext();
         }
     }
@@ -155,7 +175,9 @@ public class Payroll {
      */
     public void hireNew() throws IOException {
         System.out.print('\n');
+        foutput.print('\n');
         System.out.printf("Payroll 1996 -- New Employees Added!\n");
+        foutput.printf("Payroll 1996 -- New Employees Added!\n");
         Scanner hire = new Scanner(new File("hirefile.txt"));
 
         while (hire.hasNext()) {                    //Same scanning method as before
@@ -175,6 +197,7 @@ public class Payroll {
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
             System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
+            foutput.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
             p = p.getNext();
         }
     }
@@ -185,7 +208,9 @@ public class Payroll {
      */
     public void terminate() throws IOException {
         System.out.print('\n');
+        foutput.print('\n');
         System.out.printf("Payroll 1996 -- Post \"Restructuring\"\n");
+        foutput.printf("Payroll 1996 -- Post \"Restructuring\"\n");
         Scanner fire = new Scanner (new File ("firefile.txt"));
         ObjectListNode p = EmployeeList.getFirstNode();
         while (fire.hasNext()) {                    //Read from file, scan employees for termination into list
@@ -200,7 +225,10 @@ public class Payroll {
         while (p != null) {
             Employee temp = (Employee)p.getInfo();
             System.out.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
+            foutput.printf("%s %s\n", temp.getFirstName(), temp.getLastName());
             p = p.getNext();
         }
+        foutput.flush();
+        foutput.close();
     }
 }
