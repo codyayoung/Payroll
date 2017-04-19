@@ -142,13 +142,15 @@ public class Payroll {
             Employee temp = (Employee)p.getInfo();
             if (temp.getRate().equals("H") && temp.getSalary() < 10) {
                 double new_hourly = temp.getSalary() + 0.75;
-                System.out.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), new_hourly);
-                foutput.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), new_hourly);
+                temp.setSalary(new_hourly); //Updates hourly rate to new value
+                System.out.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
+                foutput.printf("%s %-10s New Hourly Rate: %.2f/hr\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
             }
             else if(temp.getRate().equals("W") && temp.getSalary() < 350) {
                 double new_weekly = temp.getSalary() + 350;
-                System.out.printf("%s %-10s  New Salary: %.2f/week\n", temp.getFirstName(), temp.getLastName(), new_weekly);
-                foutput.printf("%s %-10s  New Salary: %.2f/week\n", temp.getFirstName(), temp.getLastName(), new_weekly);
+                temp.setSalary(new_weekly); //Updates weekly salary to new value
+                System.out.printf("%s %-10s  New Salary: %.2f/week\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
+                foutput.printf("%s %-10s  New Salary: %.2f/week\n", temp.getFirstName(), temp.getLastName(), temp.getSalary());
             }
             p = p.getNext();
         }
