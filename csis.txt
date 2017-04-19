@@ -35,15 +35,15 @@ David Renn       New Hourly Rate: 5.50/hr
 Douglas Sheer       New Salary: 600.00/week
 
 Employees - Last Name - Alphabetical - Salary
-Jean Brennan  5.40
-Shari Buchman 325.00
+Jean Brennan  6.15
+Shari Buchman 675.00
 Albert Cahana 18.75
 Joan Jacobus 925.00
-Sara Jones  7.50
-Jamie Michaels 150.00
+Sara Jones  8.25
+Jamie Michaels 500.00
 Ricky Mofsen 12.50
-David Renn  4.75
-Douglas Sheer 250.00
+David Renn  5.50
+Douglas Sheer 600.00
 Deborah Starr 1000.00
 Howard Starr 30.00
 
