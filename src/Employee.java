@@ -50,6 +50,7 @@ public class Employee implements Comparable {
 
     /**
      * Compares first names of Employee objects.
+     @return 1 if letter is lexigraphically higher, 0 if names are same
      */
     public int compareTo (Object j) {
         Employee i = (Employee) j;
