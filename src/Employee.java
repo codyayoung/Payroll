@@ -5,12 +5,12 @@
  */
 public class Employee implements Comparable {
     //Instance variables
-    public String firstName;
-    public String lastName;
-    public String gender;
-    public int tenure;          //Years with company
-    public String rate;         //Designates if employee is hourly or weekly pay
-    public double salary;       //Hourly pay if hourly, weekly pay if weekly employee
+    private String firstName;
+    private String lastName;
+    private String gender;
+    private int tenure;          //Years with company
+    private String rate;         //Designates if employee is hourly or weekly pay
+    private double salary;       //Hourly pay if hourly, weekly pay if weekly employee
 
     /**
      * Constructor method for Employee objects. Initializes instance variables.
